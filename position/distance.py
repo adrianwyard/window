@@ -25,6 +25,10 @@ while True:
     # Capture frame-by-frame
     ret, frame = video_capture.read()
 
+    if not ret:
+        print("can't load image from webcam")
+        break
+
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     faces = faceCascade.detectMultiScale(
